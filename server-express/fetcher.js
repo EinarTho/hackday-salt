@@ -1,8 +1,5 @@
 const fetch = require('node-fetch');
 
-const key = 'Y1x7v6RjwAOY62vjW1Ub1PqSd6diKPmY';
-const secret = 'hWZ5dR1e2ulQGLw3';
-
 const months = {
   1: 'Jan',
   2: 'Feb',
