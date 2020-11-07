@@ -1,0 +1,10 @@
+Error handling. - have a catch block
+center the graph.
+find some nice colors. 
+Adding a react spinner
+
+ways to expand: 
+Have a history, so that the user can build his own datasset.
+Make it search for a whole year. 
+Make it faster.
+Make the text not change when someone is typing in inputfield. 

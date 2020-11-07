@@ -14,7 +14,6 @@ function App() {
   const [searchInputYear, setSearchInputYear] = useState('');
   const [searchInputWord, setSearchInputWord] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [arrayOfArrays, setArrayOfArrays] = useState([]);
 
   function yearInputChange(e) {
     setSearchInputYear(e.target.value);
@@ -27,17 +26,21 @@ function App() {
   async function fetch(e) {
     setIsLoading(true);
     console.log('before fetch');
-    const result = await axios.get(
-      `http://localhost:3000/api/${searchInputYear}/${searchInputWord}`
-    );
-    setIsLoading(false);
-    console.log(result);
-    setArrayOfArrays(...arrayOfArrays, result.data);
+    try {
+      const result = await axios.get(
+        `http://localhost:3000/api/${searchInputYear}/${searchInputWord}`
+      );
+      setIsLoading(false);
+      console.log(result);
+      setWordCountArray(result.data);
+    } catch (e) {
+      setIsLoading(false);
+      setWordCountArray('Uff. There was an error.');
+    }
   }
 
   return (
     <div className="App">
-      <Header />
       <Router>
         <SearchComponent
           fetch={fetch}
